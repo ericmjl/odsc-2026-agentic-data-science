@@ -21,6 +21,11 @@ If `CLAUDE.md` or `.claude/CLAUDE.md` appears later, consolidate duplicated guid
 - **Docs**: **MkDocs** (Material) when the docs workflow is used (`mkdocs.yaml`, `docs/`).
 - **Notebooks**: **Marimo** — prefer Marimo (`.py` notebooks with reactive execution) over Jupyter for exploratory work. Always launch in **sandboxed mode**: `uvx marimo edit --sandbox <folder>` (use `.` for the current directory). This ensures a fresh isolated environment with the latest package versions resolved automatically via `uvx`.
 
+### Marimo pair and `code_mode` (coding agents)
+
+- **Notebook edits**: When a coding agent changes a Marimo notebook (especially while **marimo pair** or any live session is active), use Marimo’s **`code_mode` API** (`import marimo._code_mode as cm`, then `async with cm.get_context() as ctx:`) to create, edit, delete, and run cells. **Do not edit the `.py` notebook file directly** — the kernel owns the reactive graph; on-disk edits fight the session and are easy to get wrong. Operational detail lives in `.agents/skills/marimo-pair/SKILL.md` (discover server, `execute-code.sh`, guard rails).
+- **Data-analysis layout**: Structure analytical notebooks as **explain → compute → interpret**: prefix each substantive **code** cell with a **markdown** cell that states what the next cell does and why. When the human records **observations** (what they see in outputs, caveats, takeaways), add those as a **markdown cell immediately after** the related code cell.
+
 When adding dependencies, prefer declaring them in **`pyproject.toml`** and syncing the Pixi environment as this repo already does, rather than ad hoc `pip install` in prose unless the user asks for a one-off experiment.
 
 ## Repository layout (expectations)
