@@ -4,6 +4,8 @@ agentic ds
 
 Made with ❤️ by Eric Ma (@ericmjl).
 
+I offer training for small teams on practical ways to do data science with coding agents; get in touch via my shortmail link: https://ericmjl--shortmail-run-app.modal.run/send/cce87ae9c1d7
+
 ## Related blog posts
 
 - [Benchmark multiple LLMs against the same marimo-pair workflow on real enzyme mutagenesis data, with token costs, `marimo check` gates, and staged artifacts (heatmap → UpSet → recommendations).](https://ericmjl.github.io/blog/2026/4/8/benchmarking-llms-with-marimo-pair/)
