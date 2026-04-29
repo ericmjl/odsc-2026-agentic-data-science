@@ -15,6 +15,24 @@ I offer training for small teams on practical ways to do data science with codin
 - [Part 2 — Skills compress repeatable jobs into reviewable `SKILL.md` playbooks; iterate them like taste; compare distribution with MCP and installers such as OpenSkills.](https://ericmjl.github.io/blog/2026/1/18/how-to-build-self-improving-coding-agents-part-2/)
 - [Part 3 — Combine repo memory and skills into a maturity model, explicit rules for updating `AGENTS.md` versus promoting a skill, and metacognition as the compounding habit.](https://ericmjl.github.io/blog/2026/1/19/how-to-build-self-improving-coding-agents-part-3/)
 
+## Example notebook
+
+From the repo root, launch the Marimo notebook in a sandboxed environment (`uvx` resolves dependencies from the notebook metadata) and without an auth token (so tools such as marimo pair can discover the session):
+
+```bash
+uvx marimo edit --sandbox --no-token notebooks/example_notebook.py
+```
+
+## Cursor Agent transcript export
+
+Workspace Agent chats are stored by Cursor under `~/.cursor/projects/<workspace-slug>/agent-transcripts/<conversation-id>/*.jsonl`. To regenerate the Markdown snapshot (checked into `docs/`):
+
+```bash
+pixi run python scripts/export_cursor_agent_transcripts.py
+```
+
+See **`docs/cursor-agent-chat-export.md`**.
+
 ## Get started for development
 
 To get started:
